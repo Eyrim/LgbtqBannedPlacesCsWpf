@@ -1,0 +1,58 @@
+﻿<Window x:Class="LgbtqBannedPlacesCsWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LgbtqBannedPlacesCsWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="200">
+            <Label Content="Enter your AGAB"/>
+            <ComboBox x:Name="comboAgab">
+                <ComboBoxItem Content="AMAB"></ComboBoxItem>
+                <ComboBoxItem Content="AFAB"></ComboBoxItem>
+                <ComboBoxItem Content="Intersex"></ComboBoxItem>
+            </ComboBox>
+            <Label Content=""/>
+            <Label Content="Enter Your Gender Identity"/>
+            <ComboBox x:Name="comboGender">
+                <ComboBoxItem Content="Male"></ComboBoxItem>
+                <ComboBoxItem Content="Female"></ComboBoxItem>
+                <ComboBoxItem Content="Non-Binary"></ComboBoxItem>
+                <ComboBoxItem Content="Other"></ComboBoxItem>
+            </ComboBox>
+            <Label Content=""/>
+            <Label Content="Enter Your Romantic Orientation"/>
+            <ComboBox x:Name="comboRomantic">
+                <ComboBoxItem Content="Heteromantic"></ComboBoxItem>
+                <ComboBoxItem Content="Homoromantc"></ComboBoxItem>
+                <ComboBoxItem Content="Aromantic"></ComboBoxItem>
+                <ComboBoxItem Content="Biromantic"></ComboBoxItem>
+                <ComboBoxItem Content="Panromantic"></ComboBoxItem>
+                <ComboBoxItem Content="Other"></ComboBoxItem>
+            </ComboBox>
+            <Label Content=""/>
+            <Label Content="Enter Your Sexual Orientation"/>
+            <ComboBox x:Name="comboSexual">
+                <ComboBoxItem Content="Heterosexual"></ComboBoxItem>
+                <ComboBoxItem Content="Homosexual"></ComboBoxItem>
+                <ComboBoxItem Content="Asexual"></ComboBoxItem>
+                <ComboBoxItem Content="Bisexual"></ComboBoxItem>
+                <ComboBoxItem Content="Pansexual"></ComboBoxItem>
+                <ComboBoxItem Content="Other"></ComboBoxItem>
+            </ComboBox>
+            <Label Content=""/>
+            <Label Content="Enter Your Gender Presentation"/>
+            <ComboBox x:Name="comboPresentation">
+                <ComboBoxItem Content="Masculine"></ComboBoxItem>
+                <ComboBoxItem Content="Feminine"></ComboBoxItem>
+                <ComboBoxItem Content="Androgynous"></ComboBoxItem>
+                <ComboBoxItem Content="Other"></ComboBoxItem>
+            </ComboBox>
+            <Label Content=""/>
+            <Button x:Name="btnSubmit" Content="Submit" Click="btnSubmit_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
