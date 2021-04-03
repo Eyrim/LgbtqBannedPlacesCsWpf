@@ -10,8 +10,8 @@
         <StackPanel HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="200">
             <Label Content="Enter your AGAB"/>
             <ComboBox x:Name="comboAgab">
-                <ComboBoxItem Content="AMAB"></ComboBoxItem>
-                <ComboBoxItem Content="AFAB"></ComboBoxItem>
+                <ComboBoxItem Content="Male"></ComboBoxItem>
+                <ComboBoxItem Content="Female"></ComboBoxItem>
                 <ComboBoxItem Content="Intersex"></ComboBoxItem>
             </ComboBox>
             <Label Content=""/>
@@ -53,6 +53,10 @@
             <Label Content=""/>
             <Button x:Name="btnSubmit" Content="Submit" Click="btnSubmit_Click"/>
         </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="399" Margin="582,0,0,0" VerticalAlignment="Top" Width="200"> 
+            <TextBlock x:Name="txtbCountries" TextWrapping="Wrap" Text="" Height="399"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="399" Margin="215,10,0,0" VerticalAlignment="Top" Width="367"/>
 
     </Grid>
 </Window>
