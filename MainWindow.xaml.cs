@@ -181,11 +181,11 @@ namespace LgbtqBannedPlacesCsWpf
 
         void displayTransphobic(string[] countriesAmmended)
         {
-            string country = "";
             string toDisplay = "";
             for (int i = 0; i < countriesAmmended.Length; i++)
             {
                 if (Convert.ToBoolean(countriesAmmended[i]?.Contains("(gender)"))) { toDisplay += deleteSubstring(countriesAmmended[i], "(") + "\n"; };
+                if (Convert.ToBoolean(countriesAmmended[i]?.Contains("(only gender)"))) { toDisplay += deleteSubstring(countriesAmmended[i], "(") + "\n"; };
             }
 
             txtbCountries.Text = toDisplay;
