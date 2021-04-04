@@ -53,10 +53,8 @@
             <Label Content=""/>
             <Button x:Name="btnSubmit" Content="Submit" Click="btnSubmit_Click"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="399" Margin="582,0,0,0" VerticalAlignment="Top" Width="200"> 
-            <TextBlock x:Name="txtbCountries" TextWrapping="Wrap" Text="" Height="399"/>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="399" Margin="215,10,0,0" VerticalAlignment="Top" Width="367"/>
-
+        <TextBlock x:Name="txtbCountries" TextWrapping="Wrap" Text="" Height="399" Margin="225,10,393,10"/>
+        <TextBlock x:Name="txtbCountries_Copy" TextWrapping="Wrap" Text="" Height="399" Margin="399,10,219,10"/>
+        <TextBlock x:Name="txtbCountries_Copy1" TextWrapping="Wrap" Text="" Height="399" Margin="573,10,45,10"/>
     </Grid>
 </Window>

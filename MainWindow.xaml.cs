@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace LgbtqBannedPlacesCsWpf
 {
@@ -154,23 +155,24 @@ namespace LgbtqBannedPlacesCsWpf
         /// <param name="user"></param>
         void displayCountries(User user, string[] countriesAmmended)
         {
-            if (user.IsCis == false || user.PresentsCis == false)
-            {
-                displayTransphobic(countriesAmmended);
-            }
-
             if (user.IsHet == false)
             {
-                displayHomophobic();
+                displayHomophobic(countriesAmmended, user);
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="content"></param>
+        /// <param name="substring"></param>
+        /// <returns></returns>
         static string deleteSubstring(string content, string substring)
         {
-            int index = content.IndexOf(substring);
+            int index = Convert.ToInt32(content?.IndexOf(substring));
             string output = "";
 
-            for (int i = 0; i < content.Length; i++) 
+            for (int i = 0; i < Convert.ToInt32(content?.Length); i++) 
             { 
                 if (i == index) { return output; }
                 output += content[i]; 
@@ -179,21 +181,120 @@ namespace LgbtqBannedPlacesCsWpf
             return output;
         }
 
-        void displayTransphobic(string[] countriesAmmended)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="countriesAmmended"></param>
+        /// <returns></returns>
+        string displayTransphobic(string[] countriesAmmended)
         {
             string toDisplay = "";
+            string modifier = ";";
             for (int i = 0; i < countriesAmmended.Length; i++)
             {
-                if (Convert.ToBoolean(countriesAmmended[i]?.Contains("(gender)"))) { toDisplay += deleteSubstring(countriesAmmended[i], "(") + "\n"; };
-                if (Convert.ToBoolean(countriesAmmended[i]?.Contains("(only gender)"))) { toDisplay += deleteSubstring(countriesAmmended[i], "(") + "\n"; };
+                if (Convert.ToBoolean(countriesAmmended[i]?.Contains("(gender)"))) { toDisplay += deleteSubstring(countriesAmmended[i]?.ToString(), "(") + modifier; };
+                if (Convert.ToBoolean(countriesAmmended[i]?.Contains("(only gender)"))) { toDisplay += deleteSubstring(countriesAmmended[i].ToString(), "(") + modifier; };
             }
 
-            txtbCountries.Text = toDisplay;
+            return toDisplay;
         }
 
-        static void displayHomophobic()
+        void displayList(string[] countries)
         {
+            List parentList = new List();
+            parentList.MarkerOffset = 25;
+            parentList.MarkerStyle = TextMarkerStyle.Disc;
 
+            List<ListItem> liList = new List<ListItem>();
+
+            for (int i = 0; i < countries.Length; i++)
+            {
+                liList.Add(new ListItem(new Paragraph(new Run(countries[i]))));
+                parentList.ListItems.Add(liList[i]);
+            }
+
+            
+
+
+
+            /*
+            List listx = new List();
+            // Set the space between the markers and list content to 25 DIP.
+            listx.MarkerOffset = 25;
+            // Use uppercase Roman numerals.
+            listx.MarkerStyle = TextMarkerStyle.UpperRoman;
+            // Start list numbering at 5.
+            listx.StartIndex = 5;
+
+            // Create the list items that will go into the list.
+            ListItem liV = new ListItem(new Paragraph(new Run("Boron")));
+            ListItem liVI = new ListItem(new Paragraph(new Run("Carbon")));
+            ListItem liVII = new ListItem(new Paragraph(new Run("Nitrogen")));
+            ListItem liVIII = new ListItem(new Paragraph(new Run("Oxygen")));
+            ListItem liIX = new ListItem(new Paragraph(new Run("Fluorine")));
+            ListItem liX = new ListItem(new Paragraph(new Run("Neon")));
+
+            // Finally, add the list items to the list.
+            listx.ListItems.Add(liV);
+            listx.ListItems.Add(liVI);
+            listx.ListItems.Add(liVII);
+            listx.ListItems.Add(liVIII);
+            listx.ListItems.Add(liIX);
+            listx.ListItems.Add(liX);
+             */
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="countriesAmmended"></param>
+        /// <param name="user"></param>
+        void displayHomophobic(string[] countriesAmmended, User user)
+        {
+            string toDisplay = "";
+            string modifier = "; ";
+            for (int i = 0; i < countriesAmmended.Length; i++)
+            {
+                if (!(Convert.ToBoolean(countriesAmmended[i]?.Contains("(only gender)")))) { toDisplay += deleteSubstring(countriesAmmended[i]?.ToString(), "(") + modifier; }; 
+            }
+
+            if (user.IsCis == false || user.PresentsCis == false)
+            {
+                toDisplay += displayTransphobic(countriesAmmended);
+            }
+
+            displayList(countriesAmmended);
+
+            //txtbCountries.Text = deleteEmpty(toDisplay);
+            MessageBox.Show(deleteEmpty(toDisplay));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        string deleteEmpty(string content)
+        {
+            string output = "";
+
+            // Put content into an array based on the delimeter ";"
+            string[] contentArr = content.Split(';');
+
+            // Enumerate through the array, checking each element to see if it doesn't contain [a-q] (lower it all first)
+            string pattern = @"[a-q]";
+            Regex rx = new Regex(pattern);
+            
+            for (int i = 0; i < contentArr.Length; i++)
+            {
+                if (rx.IsMatch(contentArr[i].ToLower()))
+                {
+                    output += contentArr[i];
+                }
+            }
+
+            return output;
         }
     }
 }
+// Each textblock (atm) can hold 24 countries vertically
