@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LgbtqBannedPlacesCsWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="832.984">
     <Grid>
         <StackPanel HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="200">
             <Label Content="Enter your AGAB"/>
@@ -53,8 +53,8 @@
             <Label Content=""/>
             <Button x:Name="btnSubmit" Content="Submit" Click="btnSubmit_Click"/>
         </StackPanel>
-        <TextBlock x:Name="txtbCountries" TextWrapping="Wrap" Text="" Height="399" Margin="225,10,393,10"/>
-        <TextBlock x:Name="txtbCountries_Copy" TextWrapping="Wrap" Text="" Height="399" Margin="399,10,219,10"/>
-        <TextBlock x:Name="txtbCountries_Copy1" TextWrapping="Wrap" Text="" Height="399" Margin="573,10,45,10"/>
+        <TextBlock x:Name ="txtbCountries" HorizontalAlignment="Left" Margin="215,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="399" Width="200"/>
+        <TextBlock x:Name ="txtbCountries2" HorizontalAlignment="Left" Margin="415,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="399" Width="200"/>
+        <TextBlock x:Name ="txtbCountries3" HorizontalAlignment="Left" Margin="615,10,-6,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="399" Width="200"/>
     </Grid>
 </Window>

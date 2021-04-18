@@ -192,56 +192,90 @@ namespace LgbtqBannedPlacesCsWpf
             string modifier = ";";
             for (int i = 0; i < countriesAmmended.Length; i++)
             {
-                if (Convert.ToBoolean(countriesAmmended[i]?.Contains("(gender)"))) { toDisplay += deleteSubstring(countriesAmmended[i]?.ToString(), "(") + modifier; };
-                if (Convert.ToBoolean(countriesAmmended[i]?.Contains("(only gender)"))) { toDisplay += deleteSubstring(countriesAmmended[i].ToString(), "(") + modifier; };
+                if (Convert.ToBoolean(countriesAmmended[i]?.Contains("(gender)"))) { toDisplay += "\u2022" + deleteSubstring(countriesAmmended[i]?.ToString(), "(") + modifier; };
+                if (Convert.ToBoolean(countriesAmmended[i]?.Contains("(only gender)"))) { toDisplay += "\u2022" + deleteSubstring(countriesAmmended[i].ToString(), "(") + modifier; };
             }
+
 
             return toDisplay;
         }
 
-        void displayList(string[] countries)
+        /// <summary>
+        /// Removes any blank elements in the input list
+        /// Also merges any instances where two elements were split into multiple due to an awkward split delimeter
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        List<string> sanitiseToDisplay(List<string> content)
         {
-            List parentList = new List();
-            parentList.MarkerOffset = 25;
-            parentList.MarkerStyle = TextMarkerStyle.Disc;
+            List<string> newList = new List<string>();
+            int repeatCounter = 0;
+            int sliceCounter = 0;
 
-            List<ListItem> liList = new List<ListItem>();
-
-            for (int i = 0; i < countries.Length; i++)
+            for (int i = 0; i < content.Count; i++)
             {
-                liList.Add(new ListItem(new Paragraph(new Run(countries[i]))));
-                parentList.ListItems.Add(liList[i]);
+                try
+                {
+                    if (content[i + 1] != null || content[i + 1] != " ")
+                    {
+                        repeatCounter++;
+                    }
+
+                    else
+                    {
+
+                        for (int j = i; j < repeatCounter; j++)
+                        {
+                            //newList.Add(content[i..^repeatCounter]);
+                        }
+
+                        repeatCounter = 0;
+                    }
+                }
+
+                catch
+                { 
+                }
+
+                if (content.Contains(" ")) 
+                {
+                    if (content[i] != " ") { newList.Add(content[i]); }
+                }
             }
 
+            return newList;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="toDisplay"></param>
+        void displayList(string toDisplay)
+        {
+            List<TextBlock> txtbHolder = new List<TextBlock>(); // All the text blocks, add a new Add call here if a new block is added
+            txtbHolder.Add(txtbCountries);
+            txtbHolder.Add(txtbCountries2);
+            txtbHolder.Add(txtbCountries3);
+
+            //string[,] txtHolder = new string[txtbHolder.Count, 24];
+            List<string> txtHolder = new List<string>();
+
+            List<string> toDisplayList = sanitiseToDisplay(toDisplay.Split(' ').ToList<string>()); // The list of countries
+
+            int counter = 0; // The 0 -> 24 counter for how many countries can fit in one text block
+            int currentChunk = 0; // The txtBlock being written to currently
             
+            for (int i = 0; i < toDisplayList.Count; i++)
+            {
+                //txtbHolder[currentChunk].Text += toDisplayList[i];
+                txtHolder.Add(toDisplayList[i].ToString());
 
+                if (counter > 24) { currentChunk++; counter = 0; }
 
+                else { counter++; }
+            }
 
-            /*
-            List listx = new List();
-            // Set the space between the markers and list content to 25 DIP.
-            listx.MarkerOffset = 25;
-            // Use uppercase Roman numerals.
-            listx.MarkerStyle = TextMarkerStyle.UpperRoman;
-            // Start list numbering at 5.
-            listx.StartIndex = 5;
-
-            // Create the list items that will go into the list.
-            ListItem liV = new ListItem(new Paragraph(new Run("Boron")));
-            ListItem liVI = new ListItem(new Paragraph(new Run("Carbon")));
-            ListItem liVII = new ListItem(new Paragraph(new Run("Nitrogen")));
-            ListItem liVIII = new ListItem(new Paragraph(new Run("Oxygen")));
-            ListItem liIX = new ListItem(new Paragraph(new Run("Fluorine")));
-            ListItem liX = new ListItem(new Paragraph(new Run("Neon")));
-
-            // Finally, add the list items to the list.
-            listx.ListItems.Add(liV);
-            listx.ListItems.Add(liVI);
-            listx.ListItems.Add(liVII);
-            listx.ListItems.Add(liVIII);
-            listx.ListItems.Add(liIX);
-            listx.ListItems.Add(liX);
-             */
+            throw new Exception();
         }
 
         /// <summary>
@@ -255,7 +289,7 @@ namespace LgbtqBannedPlacesCsWpf
             string modifier = "; ";
             for (int i = 0; i < countriesAmmended.Length; i++)
             {
-                if (!(Convert.ToBoolean(countriesAmmended[i]?.Contains("(only gender)")))) { toDisplay += deleteSubstring(countriesAmmended[i]?.ToString(), "(") + modifier; }; 
+                if (!(Convert.ToBoolean(countriesAmmended[i]?.Contains("(only gender)")))) { toDisplay += "\u2022" + deleteSubstring(countriesAmmended[i]?.ToString(), "(") + modifier; };
             }
 
             if (user.IsCis == false || user.PresentsCis == false)
@@ -263,7 +297,7 @@ namespace LgbtqBannedPlacesCsWpf
                 toDisplay += displayTransphobic(countriesAmmended);
             }
 
-            displayList(countriesAmmended);
+            displayList(deleteEmpty(toDisplay));
 
             //txtbCountries.Text = deleteEmpty(toDisplay);
             MessageBox.Show(deleteEmpty(toDisplay));
