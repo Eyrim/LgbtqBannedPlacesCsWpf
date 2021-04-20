@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LgbtqBannedPlacesCsWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="832.984">
-    <Grid>
-        <StackPanel HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="200">
-            <Label Content="Enter your AGAB"/>
+        Title="" Height="450" Width="832.984">
+    <Grid Background="#FF8195B2">
+        <StackPanel HorizontalAlignment="Left" Height="399" Margin="215,10,0,0" VerticalAlignment="Top" Width="400">
+            <Label Content="Enter your AGAB" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" Background="{x:Null}" BorderBrush="#FF040000"/>
             <ComboBox x:Name="comboAgab">
                 <ComboBoxItem Content="Male"></ComboBoxItem>
                 <ComboBoxItem Content="Female"></ComboBoxItem>
                 <ComboBoxItem Content="Intersex"></ComboBoxItem>
             </ComboBox>
             <Label Content=""/>
-            <Label Content="Enter Your Gender Identity"/>
+            <Label Content="Enter Your Gender Identity" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" Background="{x:Null}" BorderThickness="0"/>
             <ComboBox x:Name="comboGender">
                 <ComboBoxItem Content="Male"></ComboBoxItem>
                 <ComboBoxItem Content="Female"></ComboBoxItem>
@@ -23,7 +23,7 @@
                 <ComboBoxItem Content="Other"></ComboBoxItem>
             </ComboBox>
             <Label Content=""/>
-            <Label Content="Enter Your Romantic Orientation"/>
+            <Label Content="Enter Your Romantic Orientation" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" Background="{x:Null}" BorderBrush="#FF040000"/>
             <ComboBox x:Name="comboRomantic">
                 <ComboBoxItem Content="Heteromantic"></ComboBoxItem>
                 <ComboBoxItem Content="Homoromantc"></ComboBoxItem>
@@ -33,7 +33,7 @@
                 <ComboBoxItem Content="Other"></ComboBoxItem>
             </ComboBox>
             <Label Content=""/>
-            <Label Content="Enter Your Sexual Orientation"/>
+            <Label Content="Enter Your Sexual Orientation" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" Background="{x:Null}" BorderBrush="#FF040000"/>
             <ComboBox x:Name="comboSexual">
                 <ComboBoxItem Content="Heterosexual"></ComboBoxItem>
                 <ComboBoxItem Content="Homosexual"></ComboBoxItem>
@@ -43,7 +43,7 @@
                 <ComboBoxItem Content="Other"></ComboBoxItem>
             </ComboBox>
             <Label Content=""/>
-            <Label Content="Enter Your Gender Presentation"/>
+            <Label Content="Enter Your Gender Presentation" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" Background="{x:Null}" BorderBrush="#FF040000"/>
             <ComboBox x:Name="comboPresentation">
                 <ComboBoxItem Content="Masculine"></ComboBoxItem>
                 <ComboBoxItem Content="Feminine"></ComboBoxItem>
@@ -53,8 +53,108 @@
             <Label Content=""/>
             <Button x:Name="btnSubmit" Content="Submit" Click="btnSubmit_Click"/>
         </StackPanel>
-        <TextBlock x:Name ="txtbCountries" HorizontalAlignment="Left" Margin="215,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="399" Width="200"/>
-        <TextBlock x:Name ="txtbCountries2" HorizontalAlignment="Left" Margin="415,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="399" Width="200"/>
-        <TextBlock x:Name ="txtbCountries3" HorizontalAlignment="Left" Margin="615,10,-6,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="399" Width="200"/>
+        <TextBlock x:Name ="txtbCountries" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="399" Width="200"/>
+        <TextBlock x:Name ="txtbCountries2" HorizontalAlignment="Left" Margin="615,10,-6,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="399" Width="200"/>
+        <!--
+        Trans Flag
+        -->
+        <Rectangle Fill="#FF52CEEA" HorizontalAlignment="Left" Height="488" Margin="784,128,-7,-197" Stroke="Black" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-2">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="39.591"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FFF1B5FF" HorizontalAlignment="Left" Height="488" Margin="759,71,0,-140" Stroke="Black" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-2">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="39.591"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FF52CEEA" HorizontalAlignment="Left" Height="431" Margin="728,49,0,-61" Stroke="Black" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-2">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="39.591"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="215" Margin="767,217,0,-13" Width="48" VerticalAlignment="Center" Panel.ZIndex="-5"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="215" Margin="725,269,0,-65" Width="48" VerticalAlignment="Center" Panel.ZIndex="-5"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="215" Margin="682,330,0,-126" Width="48" VerticalAlignment="Center" Panel.ZIndex="-5"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="215" Margin="648,372,0,-168" Width="48" VerticalAlignment="Center" Panel.ZIndex="-5"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="215" Margin="805,204,-28,0" Width="48" VerticalAlignment="Center" Panel.ZIndex="-5"/>
+        <!--
+        Pride Flag
+        -->
+        <Rectangle Fill="#FFEA5252" HorizontalAlignment="Left" Height="922" Margin="376,-222,0,-281" Stroke="Black" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-45.366"/>
+                    <TranslateTransform X="14.819" Y="-76.122"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FFE07A3F" HorizontalAlignment="Left" Height="924" Margin="334,-296,0,-209" Stroke="Black" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-45.366"/>
+                    <TranslateTransform X="-18.802" Y="0.115"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FFD0DE49" HorizontalAlignment="Left" Height="924" Margin="290,-320,0,-185" Stroke="Black" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-45.366"/>
+                    <TranslateTransform X="-3.095" Y="75.757"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FF52EA52" HorizontalAlignment="Left" Height="922" Margin="226,-134,0,-369" Stroke="Black" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-45.366"/>
+                    <TranslateTransform X="14.819" Y="-76.122"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FF3E79DE" HorizontalAlignment="Left" Height="924" Margin="184,-208,0,-297" Stroke="Black" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-45.366"/>
+                    <TranslateTransform X="-18.802" Y="0.115"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#3F00FF" HorizontalAlignment="Left" Height="924" Margin="140,-232,0,-273" Stroke="Black" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="-1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-45.366"/>
+                    <TranslateTransform X="-3.095" Y="75.757"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
     </Grid>
 </Window>

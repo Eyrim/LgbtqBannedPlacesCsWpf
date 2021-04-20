@@ -255,7 +255,6 @@ namespace LgbtqBannedPlacesCsWpf
             List<TextBlock> txtbHolder = new List<TextBlock>(); // All the text blocks, add a new Add call here if a new block is added
             txtbHolder.Add(txtbCountries);
             txtbHolder.Add(txtbCountries2);
-            txtbHolder.Add(txtbCountries3);
 
             //string[,] txtHolder = new string[txtbHolder.Count, 24];
             List<string> txtHolder = new List<string>();
