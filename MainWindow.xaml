@@ -26,7 +26,7 @@
             <Label Content="Enter Your Romantic Orientation" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center" Foreground="White" Background="{x:Null}" BorderBrush="#FF040000"/>
             <ComboBox x:Name="comboRomantic">
                 <ComboBoxItem Content="Heteromantic"></ComboBoxItem>
-                <ComboBoxItem Content="Homoromantc"></ComboBoxItem>
+                <ComboBoxItem Content="Homoromantic"></ComboBoxItem>
                 <ComboBoxItem Content="Aromantic"></ComboBoxItem>
                 <ComboBoxItem Content="Biromantic"></ComboBoxItem>
                 <ComboBoxItem Content="Panromantic"></ComboBoxItem>
