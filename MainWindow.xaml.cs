@@ -208,40 +208,24 @@ namespace LgbtqBannedPlacesCsWpf
         /// <returns></returns>
         List<string> sanitiseToDisplay(List<string> content)
         {
-            List<string> newList = new List<string>();
-            int repeatCounter = 0;
-            int sliceCounter = 0;
-
-            for (int i = 0; i < content.Count; i++)
+            /* DEBUG
+            for (int i = 0; i < content.ToString().Length; i++)
             {
-                try
+                MessageBox.Show(content[i]);
+            }
+            */
+
+            List<string> newList = new List<string>();
+
+            for (int i = 0; i < content.ToString().Length; i++)
+            {
+                if (content[i] != " " || content[i] != "")
                 {
-                    if (content[i + 1] != null || content[i + 1] != " ")
-                    {
-                        repeatCounter++;
-                    }
-
-                    else
-                    {
-
-                        for (int j = i; j < repeatCounter; j++)
-                        {
-                            //newList.Add(content[i..^repeatCounter]);
-                        }
-
-                        repeatCounter = 0;
-                    }
-                }
-
-                catch
-                { 
-                }
-
-                if (content.Contains(" ")) 
-                {
-                    if (content[i] != " ") { newList.Add(content[i]); }
+                    newList.Add(content[i]);
                 }
             }
+
+            newList.RemoveAt(0);
 
             return newList;
         }
@@ -259,11 +243,11 @@ namespace LgbtqBannedPlacesCsWpf
             //string[,] txtHolder = new string[txtbHolder.Count, 24];
             List<string> txtHolder = new List<string>();
 
-            List<string> toDisplayList = sanitiseToDisplay(toDisplay.Split(' ').ToList<string>()); // The list of countries
+            List<string> toDisplayList = sanitiseToDisplay(toDisplay.Split('\u2022').ToList<string>()); // The list of countries
 
             int counter = 0; // The 0 -> 24 counter for how many countries can fit in one text block
             int currentChunk = 0; // The txtBlock being written to currently
-            
+
             for (int i = 0; i < toDisplayList.Count; i++)
             {
                 //txtbHolder[currentChunk].Text += toDisplayList[i];
@@ -274,7 +258,37 @@ namespace LgbtqBannedPlacesCsWpf
                 else { counter++; }
             }
 
-            throw new Exception();
+            //throw new Exception(); // DEBUG
+
+            int boxCounter = 0;
+            int displayCounter = 0;
+
+            try
+            {
+                /*
+                for (int i = 0; i < txtHolder.Count; i++)
+                {
+                    txtbHolder[i].Text = "\u2022" + txtHolder[i] + "\n";
+                }
+                */
+                for (int i = 0; i < txtHolder.Count; i++)
+                {
+                    if (displayCounter == 24)
+                    {
+                        boxCounter++;
+                        displayCounter = 0;
+                    }
+
+                    txtbHolder[boxCounter].Text += "\u2022" + txtHolder[i] + "\n";
+
+                    displayCounter++;
+                }
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         /// <summary>

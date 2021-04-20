@@ -53,8 +53,8 @@
             <Label Content=""/>
             <Button x:Name="btnSubmit" Content="Submit" Click="btnSubmit_Click"/>
         </StackPanel>
-        <TextBlock x:Name ="txtbCountries" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="399" Width="200"/>
-        <TextBlock x:Name ="txtbCountries2" HorizontalAlignment="Left" Margin="615,10,-6,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="399" Width="200"/>
+        <TextBlock x:Name ="txtbCountries" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="399" Width="200" Foreground="#FF3C3C3C"/>
+        <TextBlock x:Name ="txtbCountries2" HorizontalAlignment="Left" Margin="620,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="399" Width="200" Foreground="#FF3C3C3C"/>
         <!--
         Trans Flag
         -->
