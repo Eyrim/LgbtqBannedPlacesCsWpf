@@ -54,6 +54,7 @@ namespace LgbtqBannedPlacesCsWpf
             identity.Add("presentation", cbiPresentation.Content.ToString());
 
             // Spits out the identity to the user (debug)
+            /*
             MessageBox.Show($@"
             You are: {cbiAgab.Content.ToString()}
             Your gender identity: {cbiGender.Content.ToString()}
@@ -61,6 +62,7 @@ namespace LgbtqBannedPlacesCsWpf
             Your sexual orientation: {cbiSexual.Content.ToString()}
             You present: {cbiPresentation.Content.ToString()}
             ");
+            */
 
             // Creates a dictionary for the JSON to sit in
             Dictionary<string, string> hate = new Dictionary<string, string>();
@@ -155,9 +157,16 @@ namespace LgbtqBannedPlacesCsWpf
         /// <param name="user"></param>
         void displayCountries(User user, string[] countriesAmmended)
         {
+            bool cis = true;
+
+            if (user.IsCis == false || user.PresentsCis == false)
+            {
+                cis = false;
+            }
+
             if (user.IsHet == false)
             {
-                displayHomophobic(countriesAmmended, user);
+                displayHomophobic(countriesAmmended, user, cis);
             }
         }
 
@@ -296,7 +305,7 @@ namespace LgbtqBannedPlacesCsWpf
         /// </summary>
         /// <param name="countriesAmmended"></param>
         /// <param name="user"></param>
-        void displayHomophobic(string[] countriesAmmended, User user)
+        void displayHomophobic(string[] countriesAmmended, User user, bool cis)
         {
             string toDisplay = "";
             string modifier = "; ";
@@ -305,7 +314,7 @@ namespace LgbtqBannedPlacesCsWpf
                 if (!(Convert.ToBoolean(countriesAmmended[i]?.Contains("(only gender)")))) { toDisplay += "\u2022" + deleteSubstring(countriesAmmended[i]?.ToString(), "(") + modifier; };
             }
 
-            if (user.IsCis == false || user.PresentsCis == false)
+            if (cis == false)
             {
                 toDisplay += displayTransphobic(countriesAmmended);
             }
@@ -313,7 +322,7 @@ namespace LgbtqBannedPlacesCsWpf
             displayList(deleteEmpty(toDisplay));
 
             //txtbCountries.Text = deleteEmpty(toDisplay);
-            MessageBox.Show(deleteEmpty(toDisplay));
+            //MessageBox.Show(deleteEmpty(toDisplay)); // DEBUG
         }
 
         /// <summary>
